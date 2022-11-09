@@ -2,15 +2,46 @@
 import dash
 # import dash_html_components as html (deprecated)
 from dash import html
-
+app = dash.Dash('SERVER MUGARU/Downloads/Compressed/css')  # the name of the folder containing your code and static folder.
+app.css.append_css({'external_url': '/css/bootstrap.min.css'})
+app.server.static_folder = 'css'  # if you run app.py from 'root-dir-name' you don't need to specify.
+# ... rest of code
 # create (dash object) the app
 app = dash.Dash(__name__)
-
 # app layout
-app.layout = html.Div([
-    html.H1('Hello, World!, by Alpha Team.......')
-])
-
+app.layout = html.Div(children=[
+    html.Div(style={'backgroundColor':'#ecedee'},children=[
+    html.Br(),
+    html.Br(),
+    html.H1(style={"margin-left": "40px","font-family":"Arial",
+},children=['Hello, World!']),
+html.P(style={"margin-left": "40px","font-family":"Arial",
+},children=['by Alpha Team 7 B2']),
+    html.Button(id='update-button',children="More Info", 
+            style={'backgroundColor':'blue','width': '170px', 'height': '40px', 
+                   'cursor': 'pointer', 'border': '0px', 
+                   'borderRadius': '5px', 'backgroundColor': 
+                   '#3273ba', 'color': 'white', 'textTransform': 
+                   'uppercase', 'fontSize': '15px',"margin-left": "40px"}),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+    ]),
+    html.Div( children=[
+    html.Br(),
+    html.P(style={"margin-left": "40px","font-family":"Arial",
+    },children=["Anggota kelompok:"]),
+    html.P(style={"margin-left": "43px","font-family":"Arial",
+    },children=["1. 191080200101 Afikah Agustiningsih"]),
+    html.P(style={"margin-left": "43px","font-family":"Arial",
+    },children=["2. 191080200114 Alfiah Maghfiroh"]),
+    html.P(style={"margin-left": "43px","font-family":"Arial",
+    },children=["3. 191080200215 Alfitra Oktavian"])
+    ]),
+    ])
+    
+    	
 # run app
 if __name__ == '__main__':
     app.run_server(debug=True)
